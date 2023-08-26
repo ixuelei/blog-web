@@ -1,0 +1,92 @@
+$mainColor: #30405b; // 主
+$subColor: #f96; // 次
+$hoverColor: #f10000;
+
+$bgColor: #fffbf2;
+
+// 字体颜色
+$fc1: #333; // 标题
+$fc2: #555555;
+$fc3: #999;
+$fc4: #afbbce;
+
+// 背景颜色
+$bg0: #eeeeee;
+$bg1: #6e6e6e;
+$bg2: #eeeeee;
+
+$fs48: 0.48rem;
+$fs46: 0.46rem;
+$fs42: 0.42rem;
+$fs40: 0.4rem;
+$fs38: 0.38rem;
+$fs36: 0.36rem;
+$fs34: 0.34rem;
+$fs32: 0.32rem;
+$fs30: 0.3rem;
+$fs28: 0.28rem;
+$fs26: 0.26rem;
+$fs24: 0.24rem;
+
+$mainW: 1200px; // 标准宽度
+
+$border: 1px solid #eaeaea;
+
+body {
+  background-color: #f0f2f5;
+  a {
+    text-decoration: none;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    width: 5px;
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: $mainColor;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: $mainColor;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    width: 5px;
+    background-color: $mainColor;
+  }
+}
+
+.swiper {
+  cursor: pointer;
+  .swiper-pagination {
+    width: max-content;
+    bottom: 130px;
+    right: 2rem;
+    left: auto;
+    .swiper-pagination-bullet {
+      height: 0.5rem;
+      width: 0.5rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s;
+      background: #999;
+      opacity: 1;
+      border: 1px solid #ffffff90;
+    }
+    .swiper-pagination-bullet-active {
+      width: 1.8rem;
+      background: rgb(var(--color-error) / 100);
+    }
+  }
+  &:hover {
+    .swiper-pagination-bullet {
+      height: 0.7rem;
+      width: 0.7rem;
+    }
+    .swiper-pagination-bullet-active {
+      width: 2.5rem;
+    }
+  }
+}

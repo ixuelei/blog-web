@@ -1,0 +1,31 @@
+$-colors: (
+  'primary': (
+    'base': rgba(48,64,91, 1),
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #f56c6c,
+  ),
+  'info': (
+    'base': #909399,
+  ),
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors
+);
+
+@use './dark.scss';
+
+// select 层级置顶
+.el-select__popper{
+  z-index: 10000 !important;
+}

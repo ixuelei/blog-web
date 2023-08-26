@@ -1,0 +1,12 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.extract.ignoredByFiles": {
+    "pages/count.vue": [
+      "\n    Counter: {{ counter }}\n    "
+    ]
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

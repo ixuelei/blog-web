@@ -1,0 +1,105 @@
+//单行隐藏
+@mixin ellipsis($lines: 1) {
+  @if $lines !=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+
+  @else {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/*
+*背景图片
+*param {
+	$url: string
+}
+*/
+@mixin background-image($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// 鼠标点击水波效果
+@mixin clickRipple {
+  position: relative;
+  //隐藏溢出的径向渐变背景
+  overflow: hidden;
+  cursor: pointer;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    //设置径向渐变
+    background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.5s;
+  }
+
+  &:active:after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    //设置初始状态
+    transition: 0s;
+  }
+}
+// 居中自适应
+@mixin marC($w:$mainW){
+  max-width: $w;
+  margin: 0 auto;
+}
+// 滚动条样式
+
+@mixin scrollbar($w:5, $color:$mainColor, $bg:#f8f8f8) {
+  &::-webkit-scrollbar-track-piece {
+    width: $w+px;
+    background-color: $bg;
+  }
+  &::-webkit-scrollbar {
+    width: $w+px;
+    background-color: $color;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: $w+px;
+    background-color: $color;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    width: $w+px;
+    background-color: $color;
+  }
+}
+
+@mixin scrollbar-x($h:5, $color:$mainColor, $bg:#f8f8f8) {
+  &::-webkit-scrollbar-track-piece {
+    height: $h+px;
+    background-color: $bg;
+  }
+  &::-webkit-scrollbar {
+    height: $h+px;
+    background-color: $color;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: $h+px;
+    background-color: $color;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    height: $h+px;
+    background-color: $color;
+  }
+}

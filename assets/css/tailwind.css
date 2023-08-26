@@ -1,0 +1,50 @@
+/* 放在app.vue下面方便动态修改 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / <alpha-value>) */
+    --color-primary: 48 64 91;
+    --color-secondary: 36 112 181;
+    --color-accent: 255 115 179;
+    --color-neutral: 255 115 179;
+    --color-info: 255 115 179;
+    --color-success: 255 115 179;
+    --color-warning: 255 115 179;
+    --color-error: 197 0 74;
+
+    /* For hsl(198deg 93% 60% / <alpha-value>) */
+    /* --color-primary: 198deg 93% 60%; */
+
+    /* For rgba(255, 115, 179, <alpha-value>) */
+    /* --color-primary: 255, 115, 179; */
+  }
+  img {
+    display: inline-block;
+  }
+  li {
+    list-style: none;
+  }
+
+  @font-face {
+    font-family: JetBrains;
+    font-style: normal;
+    font-weight: 400;
+    src: url('JetBrains.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 400;
+    src: url('Rubik.woff2') format('woff2');
+  }
+  html {
+    font-family: JetBrains, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+  .font-Rubik {
+    font-family: 'Rubik', serif;
+  }
+}
