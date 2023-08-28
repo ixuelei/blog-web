@@ -2,17 +2,17 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-17 10:55:53
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-26 11:29:23
+ * @LastEditTime: 2023-08-28 17:25:58
  * @Description:
 -->
 <template>
-  <header class="header">
-    <div class="max-sm:fixed max-md:fixed relative w-full z-[9999] shadow-md">
+  <header>
+    <div class=" bg-transparent  max-sm:fixed max-md:fixed relative w-full z-[9999] shadow-md">
       <div class="container flex justify-between px-3 py-4 mx-auto">
         <!-- logo -->
-        <BnIcon class="absolute top-[-20px]" width="120px" name="icon-heylzh" />
+        <BnIcon class="absolute top-[-20px]" color="#fff" width="120px" name="icon-heylzh" />
         <!-- 栏目 -->
-        <nav class="flex-1 hidden text-center pl-[120px] md:block">
+        <nav class=" text-white flex-1 hidden text-center pl-[120px] md:block">
           <nuxt-link class="px-4">HOME</nuxt-link>
           <nuxt-link class="px-4">ARTICLE</nuxt-link>
           <nuxt-link class="px-4">LIFE</nuxt-link>
@@ -20,18 +20,35 @@
           <nuxt-link class="px-4">CONTACT</nuxt-link>
         </nav>
         <!-- 其他 -->
-        <div class="flex">
+        <div class="flex justify-end max-md:flex-1">
           <nuxt-link>
-            <BnIcon  width="20px" name="icon-email" />
+            <BnIcon  color="#fff" width="20px" name="icon-email" />
           </nuxt-link>
           <nuxt-link class="pl-3">
-            <BnIcon  width="20px" name="icon-home_api" />
+            <BnIcon  color="#fff" width="20px" name="icon-home_api" />
           </nuxt-link>
           <nuxt-link class="pl-2">
-            <BnIcon  width="20px" name="icon-a-juejincopy" />
+            <BnIcon  color="#fff" width="20px" name="icon-a-juejincopy" />
           </nuxt-link>
-          <div class="pl-6">
-            <BnIcon  width="20px" name="icon-search" />
+          <div class="pl-6 max-md:hidden">
+            <BnIcon  color="#fff" width="20px" name="icon-search" />
+          </div>
+          <div class="pl-6 md:hidden" :class="drawer ? 'hamburger active' : 'hamburger'" @click.stop="setDrawer">
+            <span
+              class="bg-current w-8 h-0.5 block duration-75"
+              :class="{ ' translate-y-2.5 rotate-[-45deg]': drawer }"
+            >
+            </span>
+            <span
+              class="bg-current w-8 h-0.5 block my-2 duration-900"
+              :class="{ 'opacity-0': drawer }"
+            >
+            </span>
+            <span
+              class="bg-current w-8 h-0.5 block duration-75"
+              :class="{ ' -translate-y-2.5 rotate-[45deg]': drawer }"
+            >
+            </span>
           </div>
         </div>
       </div>
@@ -93,7 +110,7 @@
       </el-drawer>
     </client-only> -->
     <BnDrawer v-model="drawer">
-      <div class="text-white">
+      <div>
         <li
           v-for="(item, index) in navList"
           :key="index"
@@ -102,7 +119,7 @@
         >
           <nuxt-link
             v-if="item.children"
-            class="w-full text-white py-4 inline-block group-hover:bg-[#1A5284 ]"
+            class="w-full py-4 inline-block group-hover:bg-[#1A5284 ]"
             :to="`${item.children[0].htmlUrl}_${item.children[0].easyName}`"
             :class="
               item.easyName == crumbColumn[0].easyName ? 'active' : item.children ? 'pHover' : ''
@@ -112,7 +129,7 @@
           </nuxt-link>
           <nuxt-link
             v-else
-            class="w-full text-white py-4 inline-block group-hover:bg-[#1A5284 ]"
+            class="w-full py-4 inline-block group-hover:bg-[#1A5284 ]"
             :to="`${item.htmlUrl}`"
             :class="
               item.easyName == crumbColumn[0].easyName ? 'active' : item.children ? 'pHover' : ''
@@ -185,15 +202,15 @@ function setDrawer() {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  nav {
-    li {
-      text-align: center;
-      border-right: 1px solid #475569;
-    }
-    li:last-child {
-      border-right: none;
-    }
-  }
-}
+// .header {
+//   nav {
+//     li {
+//       text-align: center;
+//       border-right: 1px solid #475569;
+//     }
+//     li:last-child {
+//       border-right: none;
+//     }
+//   }
+// }
 </style>

@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-26 09:50:46
+ * @LastEditTime: 2023-08-28 17:25:13
  * @Description:
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          src: '//at.alicdn.com/t/c/font_3750947_teew4m7tgn.js',
+          src: '//at.alicdn.com/t/c/font_3750947_ev93ymwyaxt.js',
           type: 'text/javascript'
         }
 

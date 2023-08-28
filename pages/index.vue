@@ -2,13 +2,18 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-13 14:44:20
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-26 17:22:15
+ * @LastEditTime: 2023-08-28 17:48:35
  * @Description:
 -->
 <template>
   <div class="home">
     <!-- 第一屏 -->
-    <div class="h-[calc(100vh-56px)]">
+    <div class="h-[100vh] relative -top-[56px]  bg-[url('img/R-C.jpg')] bg-bottom bg-cover bg-no-repeat bg-fixed">
+      <!-- 背景 -->
+      <!-- <img
+      class="absolute object-cover w-full h-full opacity-70"
+        src="https://ts1.cn.mm.bing.net/th/id/R-C.7a94c55f7edd6bbbd98b4a0c215a5c38?rik=x7dacMJ9kgm1Xg&riu=http%3a%2f%2fwww.deskcar.com%2fdesktop%2ffengjing%2f20121123133616%2f20.jpg&ehk=Rc4Xbx2t7JhHUWjxuSHC883AM8Xys9OqMghTUPM7UgI%3d&risl=&pid=ImgRaw&r=0"
+      /> -->
       <div class="container relative px-3 mx-auto text-center">
         <img class="rounded-full w-[220px] mt-[20vh]" src="../static/images/avatar.jpeg" />
         <p
@@ -30,50 +35,52 @@
         </div>
       </div>
     </div>
+    <!-- 第二屏 -->
+
     <!-- <BnBanner :img-data="bannerPic" /> -->
     <!-- adv -->
-    <div class="container px-3 mx-auto mt-4">
+    <!-- <div class="container px-3 mx-auto mt-4">
       <img
         v-if="tpggPic.length"
         :src="`https://go.ixuelei.com/prod-api/attachment/viewImage/${tpggPic[0].attaId}`"
         alt=""
       />
-    </div>
+    </div> -->
     <!-- adv end -->
     <!-- news list start -->
-    <div class="container flex-wrap px-3 mx-auto mt-4 lg:flex">
+    <!-- <div class="container flex-wrap px-3 mx-auto mt-4 lg:flex">
       <div class="lg:w-1/3">
         <BnHomeNews title="新闻中心" :list="list" />
       </div>
       <div class="lg:w-2/3 max-md:w-full">
         <BnNewsList :list="news" />
       </div>
-    </div>
+    </div> -->
     <!-- news list end -->
 
     <!-- courseBox start -->
-    <div class="w-full my-4">
+    <!-- <div class="w-full my-4">
       <div class="container px-3 mx-auto">
         <div class="px-3 bg-white">
-          <!-- 重点学科 -->
+           重点学科
           <BnKeyDiscipline title="名师推荐" />
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- courseBox end -->
     <!-- adv -->
-    <div class="container px-3 mx-auto my-4">
+    <!-- <div class="container px-3 mx-auto my-4">
       <img
         v-if="tpggPic.length > 1"
         :src="`https://go.ixuelei.com/prod-api/attachment/viewImage/${tpggPic[1].attaId}`"
         alt=""
         class="w-full"
       />
-    </div>
+    </div> -->
     <!-- adv end -->
     <!-- experts start  -->
     <!-- ../static/images/demo/exprtsbg.jpg -->
-    <div class="w-full py-3 bg-[url('img/demo/mhbg.png')] bg-cover bg-no-repeat bg-fixed">
+    <!-- <div class="w-full py-3 bg-[url('img/demo/mhbg.png')] bg-cover bg-no-repeat bg-fixed">
       <div class="container px-3 mx-auto">
         <div class="px-3 bg-slate-400/80">
           <Bn-key-discipline :class-name="{ infoP: 'text-white', infoH2: 'text-white' }">
@@ -88,10 +95,10 @@
           </Bn-key-discipline>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- experts end -->
     <!-- news1 style start -->
-    <div class="mt-4 mb-2">
+    <!-- <div class="mt-4 mb-2">
       <ul class="container grid px-3 mx-auto gap-x-4 md:grid-cols-2 lg:grid-cols-4">
         <li class="my-2">
           <BnNews1 title="医疗动态" />
@@ -106,12 +113,12 @@
           <BnNews1 title="党建工作" />
         </li>
       </ul>
-    </div>
+    </div> -->
     <!-- news1 style end -->
 
     <div class="container px-3 mx-auto">
       <div class="bg-white">
-        <BnSpecial title="专题专栏" />
+        <BnSpecial title="友情链接" />
       </div>
     </div>
     <br />
