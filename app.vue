@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-15 15:10:17
+ * @LastEditTime: 2023-09-04 09:36:18
  * @Description:
 -->
 <template>
@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-// const { windowInfo } = useStore.App()
-const pApp = useStore.App()
-const { themeType, windowInfo } = storeToRefs(pApp)
+// const { windowInfo } = useStore.BnApp()
+const BnApp = useStore.BnApp()
+const { themeType, windowInfo, scrollTop, headerClass } = storeToRefs(BnApp)
 // a.getAppConfig()
 
 // useSeoMeta({
@@ -30,23 +30,40 @@ function setThemeType(type: string) {
     html.className = type
   }
 }
+// 处理滚动条位置
 
 onMounted(() => {
   setThemeType('light')
 })
-// 监听浏览器窗口变化
+
+const  currentHeight = ref(0)
 onBeforeMount(() => {
   windowInfo.value = {
     width: window.innerWidth,
     height: window.innerHeight
   }
+  // 监听窗口大小
   window.addEventListener('resize', () => {
     windowInfo.value = {
       width: window.innerWidth,
       height: window.innerHeight
     }
+    console.log(windowInfo.value, 'windowInfo')
   })
-  console.log(windowInfo)
+  // 监听滚动条高度
+  window.addEventListener('scroll', () => {
+    scrollTop.value =
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      const scroll = scrollTop.value - currentHeight.value
+      currentHeight.value = scrollTop.value
+      if (scrollTop.value < 100) {
+        headerClass.value = 'fixed-top'
+      } else if (scroll < 0) {
+        headerClass.value = 'slideDown'
+      } else {
+        headerClass.value = 'slideUp'
+      }
+    })
 
   // if (process.client) {
   // }

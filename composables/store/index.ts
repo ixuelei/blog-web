@@ -6,8 +6,8 @@
  * @Description:
  */
 
-import { App } from './app'
+import { BnApp } from './app'
 import { bnColumn } from './column' // 栏目
 import { pUser } from './user' // 模块
-const stores = { App, bnColumn, pUser }
+const stores = { BnApp, bnColumn, pUser }
 export default stores

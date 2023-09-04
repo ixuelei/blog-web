@@ -2,12 +2,12 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-10 15:58:40
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-10 10:33:06
+ * @LastEditTime: 2023-09-04 09:33:24
  * @Description:
  */
 // http://www.syrr.cn/news/6199.html
 // import { defineStore } from 'pinia'
-export const App = defineStore('App', {
+export const BnApp = defineStore('BnApp', {
   state: () => {
     return {
       themeType: 'light', // 主题样式
@@ -15,6 +15,18 @@ export const App = defineStore('App', {
         width: 0,
         height: 0
       }, // 窗口宽高
+      /**
+       * 滚动条高度
+       */
+      scrollTop: 0,
+      /**
+       * 移动端菜单展示状态
+      */
+     isShowMenu: false,
+     /**
+       * 移动端导航样式
+      */
+     headerClass: 'fixed-top',
       name: null,
       counter: 17,
       age: 100,
@@ -32,35 +44,35 @@ export const App = defineStore('App', {
             name: '领导班子',
             children: [],
             path: '/details_lsyg/1',
-            model_view:'',
+            model_view: '',
             channel_code: 'lsyg'
           },
           {
             name: '地理位置',
             children: [],
             path: '',
-            model_view:'',
+            model_view: '',
             channel_code: ''
           },
           {
             name: '校长致辞',
             children: [],
             path: '',
-            model_view:'',
+            model_view: '',
             channel_code: ''
           },
           {
             name: '郑中视频',
             children: [],
             path: '',
-            model_view:'',
+            model_view: '',
             channel_code: ''
           },
           {
             name: '校史回眸',
             children: [],
             path: '',
-            model_view:'',
+            model_view: '',
             channel_code: ''
           }
         ]

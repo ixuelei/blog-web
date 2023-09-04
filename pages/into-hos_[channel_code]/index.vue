@@ -153,6 +153,6 @@
 </template>
 
 <script setup lang="ts">
-const App = useStore.App()
-const { navAll } = storeToRefs(App)
+const BnApp = useStore.BnApp()
+const { navAll } = storeToRefs(BnApp)
 </script>

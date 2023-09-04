@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-const App = useStore.App()
+const BnApp = useStore.BnApp()
 const pUser = useStore.pUser()
-const { counter } = storeToRefs(App)
+const { counter } = storeToRefs(BnApp)
 const { age } = storeToRefs(pUser)
 </script>

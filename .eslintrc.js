@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:35:12
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-10 10:26:52
+ * @LastEditTime: 2023-09-02 17:35:18
  * @Description:
  */
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
         '**/error.{js,ts,vue}'
       ],
       rules: {
-        'vue/multi-word-component-names': 'off'
+        'vue/multi-word-component-names': 'off',
       }
     }
   ]

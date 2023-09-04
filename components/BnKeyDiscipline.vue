@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { Pagination, Navigation } from 'swiper'
 const modules = ref([Pagination, Navigation])
-const appPN = useStore.App()
+const appPN = useStore.BnApp()
 const { windowInfo } = storeToRefs(appPN)
 defineProps({
   title: {

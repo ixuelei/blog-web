@@ -2,23 +2,23 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-04-29 14:09:34
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-10 10:16:25
+ * @LastEditTime: 2023-09-04 08:54:58
  * @Description: 默认详情页面
 -->
 <template>
   <div class="details">
     <BnTopImg title="历史沿革" />
-    <main class="container mx-auto flex">
+    <main class="container flex mx-auto">
       <!-- 二级导航  -->
       <BnLeftNav :nav-data="navAll[0]" :active="active" />
       <!-- {{ navData[active] }} -->
-      <article class="bg-white p-4" v-html="data"></article>
+      <article class="p-4 bg-white" v-html="data"></article>
     </main>
   </div>
 </template>
 <script setup lang="ts">
-const App = useStore.App()
-const { navAll } = storeToRefs(App)
+const BnApp = useStore.BnApp()
+const { navAll } = storeToRefs(BnApp)
 const $route = useRoute()
 const active = ref()
 active.value = $route.params.channel_code

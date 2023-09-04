@@ -2,16 +2,16 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2022-04-26 20:37:06
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-28 10:53:09
+ * @LastEditTime: 2023-09-03 16:46:33
  * @Description: 页面顶部头图
 -->
 <template>
   <div
     id="bn_drawer"
     :style="{ zIndex }"
-    class="fixed top-0  h-full duration-200 bg-[#ffffffe7] overflow-auto"
+    class="fixed top-0 h-[100vh] duration-200 bg-[#ffffffe7] overflow-auto"
     :class="modelValue ? 'left-0 w-full' : 'w-0 left-[100vw]'"
-    style="padding-top: 48px"
+    style="padding-top: 54px"
   >
     <slot />
   </div>

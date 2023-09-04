@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-28 17:25:13
+ * @LastEditTime: 2023-09-02 16:51:11
  * @Description:
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -97,7 +97,7 @@ export default defineNuxtConfig({
   // css: ['@/assets/css/base.css'],
   // css: [],
   // css
-  css: ['~/assets/scss/index.scss'],
+  css: ['~/assets/scss/index.scss', 'animate.css/animate.css', 'animate.css/animate.compat.css'],
   vite: {
     css: {
       preprocessorOptions: {

@@ -2,17 +2,21 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-17 10:55:53
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-08-28 17:25:58
+ * @LastEditTime: 2023-09-04 10:05:34
  * @Description:
 -->
 <template>
-  <header>
-    <div class=" bg-transparent  max-sm:fixed max-md:fixed relative w-full z-[9999] shadow-md">
+  <header
+    :style="{ color: textColor, background: bgColor }"
+    :class="[headerClass]"
+    class="fixed top-0 w-full z-[99] duration-[.8s]"
+  >
+    <div class="bg-transparent max-sm:fixed max-md:fixed relative w-full z-[9999] shadow-md">
       <div class="container flex justify-between px-3 py-4 mx-auto">
         <!-- logo -->
-        <BnIcon class="absolute top-[-20px]" color="#fff" width="120px" name="icon-heylzh" />
+        <BnIcon class="absolute top-[-20px]" :color="textColor" width="120px" name="icon-heylzh" />
         <!-- 栏目 -->
-        <nav class=" text-white flex-1 hidden text-center pl-[120px] md:block">
+        <nav class="flex-1 hidden text-center pl-[120px] md:block">
           <nuxt-link class="px-4">HOME</nuxt-link>
           <nuxt-link class="px-4">ARTICLE</nuxt-link>
           <nuxt-link class="px-4">LIFE</nuxt-link>
@@ -22,31 +26,38 @@
         <!-- 其他 -->
         <div class="flex justify-end max-md:flex-1">
           <nuxt-link>
-            <BnIcon  color="#fff" width="20px" name="icon-email" />
+            <BnIcon :color="textColor" width="20px" name="icon-email" />
           </nuxt-link>
           <nuxt-link class="pl-3">
-            <BnIcon  color="#fff" width="20px" name="icon-home_api" />
+            <BnIcon :color="textColor" width="20px" name="icon-home_api" />
           </nuxt-link>
           <nuxt-link class="pl-2">
-            <BnIcon  color="#fff" width="20px" name="icon-a-juejincopy" />
+            <BnIcon :color="textColor" width="20px" name="icon-a-juejincopy" />
           </nuxt-link>
           <div class="pl-6 max-md:hidden">
-            <BnIcon  color="#fff" width="20px" name="icon-search" />
+            <BnIcon :color="textColor" width="20px" name="icon-search" />
           </div>
-          <div class="pl-6 md:hidden" :class="drawer ? 'hamburger active' : 'hamburger'" @click.stop="setDrawer">
+          <div
+            class="pl-6 md:hidden"
+            :class="isShowMenu ? 'hamburger active' : 'hamburger'"
+            @click.stop="setDrawer"
+          >
             <span
-              class="bg-current w-8 h-0.5 block duration-75"
-              :class="{ ' translate-y-2.5 rotate-[-45deg]': drawer }"
+              :style="{ background: textColor }"
+              class="w-8 h-0.5 block duration-75"
+              :class="{ ' translate-y-2.5 rotate-[-45deg]': isShowMenu }"
             >
             </span>
             <span
-              class="bg-current w-8 h-0.5 block my-2 duration-900"
-              :class="{ 'opacity-0': drawer }"
+              :style="{ background: textColor }"
+              class="w-8 h-0.5 block my-2 duration-900"
+              :class="{ 'opacity-0': isShowMenu }"
             >
             </span>
             <span
-              class="bg-current w-8 h-0.5 block duration-75"
-              :class="{ ' -translate-y-2.5 rotate-[45deg]': drawer }"
+              :style="{ background: textColor }"
+              class="w-8 h-0.5 block duration-75"
+              :class="{ ' -translate-y-2.5 rotate-[45deg]': isShowMenu }"
             >
             </span>
           </div>
@@ -109,7 +120,7 @@
         <div>3333</div>
       </el-drawer>
     </client-only> -->
-    <BnDrawer v-model="drawer">
+    <BnDrawer v-model="isShowMenu">
       <div>
         <li
           v-for="(item, index) in navList"
@@ -153,36 +164,19 @@ import { Search } from '@element-plus/icons-vue'
 // })
 console.log('b')
 const navList = ref()
+const BnApp = useStore.BnApp()
+const { headerClass, scrollTop, isShowMenu } = storeToRefs(BnApp)
 const bnColumn = useStore.bnColumn()
 const { column, crumbColumn, twoColumn } = storeToRefs(bnColumn)
 // 处理菜单格式
 navList.value = bnTree(column.value)
 
-// const { data: navList }: any = await useAsyncData('count', async () => {
-//   const { data }: any = await httpGet('/prod-api/platform/getColumn')
-//   const nav = ref()
-//   const bnColumn =  useStore.bnColumn()
-//   const { column } = storeToRefs(bnColumn)
-//   console.log(column.value, 'column0')
-//   if (column.value.length) {
-//     nav.value = bnTree(column.value)
-//     console.log(nav.value, 'column0')
-//   } else {
-//     await bnColumn.getColumn()
-//     console.log(column.value, 'column2')
-//     nav.value = bnTree(column.value)
-//     console.log(nav.value, 'column333')
-//   }
-
-//   return bnTree(data)
-// })
-// console.log(navList, 'jjjjtttttttt')
 const input3 = ref('')
 // 是否显示搜索框
 const isSearch = ref(false)
 // 是否展开二级目录
 const isNav = ref(false)
-const drawer = ref(false)
+// const drawer = ref(false)
 
 // 监听路由变化
 const $route = useRoute()
@@ -197,11 +191,35 @@ watch(
 // 导航部分数据处理
 
 function setDrawer() {
-  drawer.value = !drawer.value
+  // drawer.value = !drawer.value
+  isShowMenu.value = !isShowMenu.value
 }
+const whiteList = ref(['/', 'about'])
+const textColor = computed(() => {
+  if (whiteList.value.includes($route.path) && scrollTop.value < 150 && !isShowMenu.value  ) {
+    return '#fff'
+  } else {
+    return '#4c4948'
+  }
+})
+const bgColor = computed(() => {
+  return isShowMenu.value || !whiteList.value.includes($route.path)
+    ? 'rgba(255, 255, 255, 0.9)'
+    : 'transparent'
+})
+onUpdated(() => {})
 </script>
 
 <style lang="scss" scoped>
+.fixed-top {
+  background: transparent;
+}
+.slideDown {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+.slideUp {
+  transform: translateY(-100px);
+}
 // .header {
 //   nav {
 //     li {

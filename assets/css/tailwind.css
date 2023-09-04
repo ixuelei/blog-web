@@ -39,12 +39,34 @@
     font-weight: 400;
     src: url('Rubik.woff2') format('woff2');
   }
-  html {
+  html,
+  body {
+    cursor: url('@/static/images/cursor.png'), default;
     font-family: JetBrains, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
       'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
   .font-Rubik {
     font-family: 'Rubik', serif;
+  }
+  a {
+    cursor: pointer;
+  }
+  .section-module-card {
+    overflow: hidden;
+    padding-left: 140px;
+    position: relative;
+    &:before {
+      border: 2px solid #f1f1f1;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 500px;
+      left: -360px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+    }
   }
 }

@@ -133,7 +133,7 @@ defineProps({
     }
   }
 })
-const appPN = useStore.App()
+const appPN = useStore.BnApp()
 const { windowInfo } = storeToRefs(appPN)
 const windowInfoW = computed(() => {
   const w = windowInfo.value.width

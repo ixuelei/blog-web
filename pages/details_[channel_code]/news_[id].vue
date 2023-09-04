@@ -15,8 +15,8 @@
   </div>
 </template>
 <script setup lang="ts">
-const App = useStore.App()
-const { navAll } = storeToRefs(App)
+const BnApp = useStore.BnApp()
+const { navAll } = storeToRefs(BnApp)
 const $route = useRoute()
 const active = ref()
 active.value = $route.params.channel_code
