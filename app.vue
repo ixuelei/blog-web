@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-09-04 09:36:18
+ * @LastEditTime: 2023-09-05 09:39:11
  * @Description:
 -->
 <template>
@@ -48,7 +48,6 @@ onBeforeMount(() => {
       width: window.innerWidth,
       height: window.innerHeight
     }
-    console.log(windowInfo.value, 'windowInfo')
   })
   // 监听滚动条高度
   window.addEventListener('scroll', () => {

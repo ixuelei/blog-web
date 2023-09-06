@@ -69,4 +69,37 @@
       width: 500px;
     }
   }
+  /* 文字渐变色 */
+  .gradient-word {
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90deg, #2db7f5, #6bc30d);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: 0.3s;
+    color: #67c23a;
+  }
+  /* 渐变线 */
+  .gradient-line {
+    position: relative;
+    margin-bottom:12px;
+    border-bottom:1px solid hsla(0,0%,92%,.5);
+    &::after {
+      background-color: #6bc30d;
+      background-image: linear-gradient(90deg, #2db7f5, #6bc30d);
+      bottom: -1px;
+      content: '';
+      height: 2px;
+      left: 0;
+      position: absolute;
+      transition: width 0.5s;
+      width: 0;
+    }
+  }
+  .gradient-line-hover {
+    &::after {
+      width: 100%;
+    }
+  }
 }

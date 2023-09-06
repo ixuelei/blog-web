@@ -6,7 +6,7 @@
  * @Description:
 -->
 <template>
-  <div class="container px-3 mx-auto flex flex-wrap">
+  <div class="container flex flex-wrap px-3 mx-auto">
     其他：
     <div v-for="(item, index) in icons" :key="index" class="p-4 text-center">
       <el-icon size="32px">

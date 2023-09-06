@@ -44,6 +44,6 @@
 //     }
 //   }
 // })
-const bnColumn = useStore.bnColumn()
+const bnColumn = useStore.BnColumn()
 const { twoColumn, crumbColumn } = storeToRefs(bnColumn)
 </script>

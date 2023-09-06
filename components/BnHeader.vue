@@ -2,14 +2,14 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-17 10:55:53
  * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-09-04 10:05:34
+ * @LastEditTime: 2023-09-06 10:11:45
  * @Description:
 -->
 <template>
   <header
     :style="{ color: textColor, background: bgColor }"
     :class="[headerClass]"
-    class="fixed top-0 w-full z-[99] duration-[.8s]"
+    class="fixed w-full z-[99] duration-[.8s]"
   >
     <div class="bg-transparent max-sm:fixed max-md:fixed relative w-full z-[9999] shadow-md">
       <div class="container flex justify-between px-3 py-4 mx-auto">
@@ -17,8 +17,8 @@
         <BnIcon class="absolute top-[-20px]" :color="textColor" width="120px" name="icon-heylzh" />
         <!-- 栏目 -->
         <nav class="flex-1 hidden text-center pl-[120px] md:block">
-          <nuxt-link class="px-4">HOME</nuxt-link>
-          <nuxt-link class="px-4">ARTICLE</nuxt-link>
+          <nuxt-link to="/" class="px-4">HOME</nuxt-link>
+          <nuxt-link to="/article-list_all" class="px-4">ARTICLE</nuxt-link>
           <nuxt-link class="px-4">LIFE</nuxt-link>
           <nuxt-link class="px-4">ABOUT</nuxt-link>
           <nuxt-link class="px-4">CONTACT</nuxt-link>
@@ -34,7 +34,7 @@
           <nuxt-link class="pl-2">
             <BnIcon :color="textColor" width="20px" name="icon-a-juejincopy" />
           </nuxt-link>
-          <div class="pl-6 max-md:hidden">
+          <div class="pl-3 md:hidden" @click="isSearch = !isSearch">
             <BnIcon :color="textColor" width="20px" name="icon-search" />
           </div>
           <div
@@ -93,12 +93,8 @@
           v-for="(item, index) in twoColumn"
           :key="index"
           class="mb-2 line-clamp-1 border-gray-200 border-[1px] p-1 text-center"
-          :to="`${item.htmlUrl}_${item.easyName}`"
-          :class="
-            item.easyName == crumbColumn[1].easyName
-              ? 'bg-secondary text-white border-transparent'
-              : ''
-          "
+          :to="`${item.htmlUrl}`"
+          :class="item ? 'bg-secondary text-white border-transparent' : ''"
         >
           {{ item.name }}
         </nuxt-link>
@@ -106,8 +102,8 @@
     </div>
     <!-- 移动端搜索 -->
     <div
-      class="fixed top-0 overflow-hidden flex items-center shadow-md w-full h-0 px-8 bg-[#f0f2f5] duration-300 z-[9]"
-      :class="isSearch ? 'top-[48px] h-[60px]' : 'top-0 h-0'"
+      class="relative top-0 h-0 overflow-hidden flex items-center shadow-md w-full px-8 bg-[#f0f2f5] duration-300 z-[9]"
+      :class="isSearch ? 'h-[60px]' : 'top-0 h-0'"
     >
       <el-input v-model="input3" placeholder="输入关键词...">
         <template #append>
@@ -131,10 +127,8 @@
           <nuxt-link
             v-if="item.children"
             class="w-full py-4 inline-block group-hover:bg-[#1A5284 ]"
-            :to="`${item.children[0].htmlUrl}_${item.children[0].easyName}`"
-            :class="
-              item.easyName == crumbColumn[0].easyName ? 'active' : item.children ? 'pHover' : ''
-            "
+            :to="`${item.children[0].htmlUrl}_${item.children[0]}`"
+            :class="item ? 'active' : item.children ? 'pHover' : ''"
           >
             {{ item.name }}
           </nuxt-link>
@@ -142,9 +136,7 @@
             v-else
             class="w-full py-4 inline-block group-hover:bg-[#1A5284 ]"
             :to="`${item.htmlUrl}`"
-            :class="
-              item.easyName == crumbColumn[0].easyName ? 'active' : item.children ? 'pHover' : ''
-            "
+            :class="item ? 'active' : item.children ? 'pHover' : ''"
           >
             {{ item.name }}
           </nuxt-link>
@@ -166,8 +158,8 @@ console.log('b')
 const navList = ref()
 const BnApp = useStore.BnApp()
 const { headerClass, scrollTop, isShowMenu } = storeToRefs(BnApp)
-const bnColumn = useStore.bnColumn()
-const { column, crumbColumn, twoColumn } = storeToRefs(bnColumn)
+const bnColumn = useStore.BnColumn()
+const { column, twoColumn } = storeToRefs(bnColumn)
 // 处理菜单格式
 navList.value = bnTree(column.value)
 
@@ -196,7 +188,7 @@ function setDrawer() {
 }
 const whiteList = ref(['/', 'about'])
 const textColor = computed(() => {
-  if (whiteList.value.includes($route.path) && scrollTop.value < 150 && !isShowMenu.value  ) {
+  if (whiteList.value.includes($route.path) && scrollTop.value < 150 && !isShowMenu.value) {
     return '#fff'
   } else {
     return '#4c4948'

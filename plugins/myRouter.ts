@@ -65,7 +65,7 @@ export default defineNuxtPlugin(async (NuxtApp: any) => {
   // 路由信息
   const route = useRoute()
   console.log(NuxtApp._route, route, 'app')
-  const bnColumn = useStore.bnColumn()
+  const bnColumn = useStore.BnColumn()
   // 请求全部菜单
   await bnColumn.getColumn()
   const { column, crumbColumn, twoColumn } = storeToRefs(bnColumn)

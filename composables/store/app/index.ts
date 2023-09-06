@@ -85,7 +85,6 @@ export const BnApp = defineStore('BnApp', {
     // async getAppConfig() {
     //   try {
     //     httpGet('/test-api/column').then((res: any) => {
-    //       console.log(res,'resjjj')
     //       this.name = res.data
     //     })
     //   } catch (error) {}

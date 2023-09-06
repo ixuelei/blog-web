@@ -40,14 +40,6 @@ const setRef = (e: any) => {
 const currentWordIndex = ref(0)
 const maxWordIndex = ref(0)
 const wordsDom = ref()
-// 随机生成id
-// function guid() {
-//   function S4() {
-//     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-//   }
-//   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
-// }
-// id.value = guid()
 
 function start() {
   timer.value = setTimeout(() => {
