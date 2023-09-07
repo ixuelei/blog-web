@@ -2,7 +2,7 @@
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-04-10 14:24:34
  * @LastEditors: Gavin xl@ckcck.com
- * @LastEditTime: 2023-09-06 17:57:20
+ * @LastEditTime: 2023-09-07 08:59:54
  * @Description:
 -->
 
@@ -22,8 +22,8 @@
                 <h2 class="text-xl text-slate-700 line-clamp-1 group-hover/link:gradient-word">
                   {{
                     item != 4
-                      ? '临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网+大学生创新创业大赛初赛路演'
-                      : '临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网'
+                      ? 'Vue2的Object.defineProperty与Vue3的Proxy区别'
+                      : 'TypeScript 定义 优势 环境搭建'
                   }}
                 </h2>
                 <p class="pt-1 pb-3 text-sm text-slate-400">
@@ -47,11 +47,11 @@
                 />
               </div>
               <div class="flex-col flex-1">
-                <p class="flex-1 text-slate-400 line-clamp-2 h-[48px]">
+                <p class="flex-1 text-slate-400 ] line-clamp-2 h-[48px]">
                   {{
                     item != 4
-                      ? '临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网+大学生创新创业大赛初赛路演'
-                      : '简介:临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网+大学生创新创业大赛初赛路演                    临床医学院、第一附属医院举办“欧林杯”成都医学院第八届互联网+大学生创新创业大赛初赛路演临床医学院第一附属医院举办“欧林杯”成都医学院第八届互联网+大学生创新创业大赛初赛路演'
+                      ? 'Object.defineProperty 只能劫持对象的某一个属性，不能对整个对象进行劫持，如果需要监听某一个对象的所有属性，需要遍历对象的所有属性并对其进行劫持来进行监听。'
+                      : '编译时静态类型检测：函数或方法传参或变量赋值不匹配时，会出现编译错误提示，规避了开发期间的大量低级错误，省时，省力自动提示更清晰明确'
                   }}
                 </p>
                 <div class="flex items-center justify-between mt-3 text-slate-400">
