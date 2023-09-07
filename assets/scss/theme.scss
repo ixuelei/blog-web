@@ -1,10 +1,63 @@
+/*   主题色配置   */
+$colorPrimary: #6bc30d;
+$colorPrimaryLight: lighten($colorPrimary, 8%);
+$colorPrimaryDark: darken($colorPrimary, 8%);
+$colorPrimaryFade: fade($colorPrimary, 8%);
+
+$colorAssist: #2db7f5;
+$colorAssistLight: lighten($colorAssist, 8%);
+$colorAssistDark: darken($colorAssist, 8%);
+$colorAssistFade: fade($colorAssist, 8%);
+
+$colorSuccess: #67c23a;
+$colorSuccessLight: lighten($colorSuccess, 8%);
+$colorSuccessDark: darken($colorSuccess, 8%);
+$colorSuccessFade: fade($colorSuccess, 8%);
+
+$colorWarning: #e6a23c;
+$colorWarningLight: lighten($colorWarning, 8%);
+$colorWarningDark: darken($colorWarning, 8%);
+$colorWarningFade: fade($colorWarning, 8%);
+
+$colorError: #f56c6c;
+$colorErrorLight: lighten($colorError, 8%);
+$colorErrorDark: darken($colorError, 8%);
+$colorErrorFade: fade($colorError, 8%);
+
+$colorInfo: #909399;
+$colorInfoLight: lighten($colorInfo, 8%);
+$colorInfoDark: darken($colorInfo, 8%);
+$colorInfoFade: fade($colorInfo, 8%);
+
+/*   字体颜色配置   */
+$colorTextTitle: #282828;
+$colorTextContent: #414240;
+$colorTextSub: #808695;
+$colorTextLight: #aeaeae;
+$colorTextDisable: #c5c8ce;
+$colorTextSilver: #f1f1f1;
+$colorTextWhite: #ffffff;
+$colorFooterText: #60606d;
+
+/*   边框颜色配置   */
+$colorBorder: #eaeaea;
+$colorBorderLight: fade($colorBorder, 50%);
+
+/*   背景颜色配置   */
+$colorBgBody: #efefee;
+$colorBg: #ffffff;
+
+$colorBgSideMenu: #363D4D;
+$colorBgSideMenuItemActive: #474C5E;
+
+// 旧色
 $mainColor: #30405b; // 主
 $subColor: #f96; // 次
 $hoverColor: #f10000;
 
 $bgColor: #fffbf2;
 
-// 字体颜色
+// 旧字体颜色
 $fc1: #333; // 标题
 $fc2: #555555;
 $fc3: #999;
@@ -56,6 +109,27 @@ body {
   &::-webkit-scrollbar-thumb:hover {
     width: 5px;
     background-color: $mainColor;
+  }
+}
+body {
+  &::-webkit-scrollbar-track-piece {
+    width: 5px;
+    background-color: #c4c4c4;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+    background-color: rgb(var(--color-primary));
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 5px;
+    background-color: rgb(var(--color-primary));
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    width: 5px;
+    border-radius: 5px;
+    background-color: rgb(var(--color-primary));
   }
 }
 

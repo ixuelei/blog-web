@@ -1,8 +1,8 @@
 /*
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
- * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-09-05 17:13:40
+ * @LastEditors: Gavin xl@ckcck.com
+ * @LastEditTime: 2023-09-07 16:24:39
  * @Description:
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -31,10 +31,6 @@ export default defineNuxtConfig({
           src: '//at.alicdn.com/t/c/font_3750947_ev93ymwyaxt.js',
           type: 'text/javascript'
         }
-
-        // { src: '//at.alicdn.com/t/font_2651910_4y3yfclueo5.js', type: 'text/javascript', charset: 'utf-8' },
-        // { src: '@/assets/js/lib-flexible0.3.4/flexible.js', type: 'text/javascript' },
-        // { src: '@/assets/js/lib-flexible0.3.4/flexible_css.js', type: 'text/javascript' }
       ]
     }
   },
@@ -67,7 +63,7 @@ export default defineNuxtConfig({
   // elementPlus: {},
   elementPlus: {
     icon: 'ElIcon',
-    importStyle: 'scss',
+    // importStyle: 'scss',
     themes: ['dark']
   },
   tailwindcss: {
@@ -97,31 +93,19 @@ export default defineNuxtConfig({
   // css: ['@/assets/css/base.css'],
   // css: [],
   // css
-  css: [
-    '@/assets/css/base.css',
-    '~/assets/scss/index.scss',
-    'animate.css/animate.css',
-    'animate.css/animate.compat.css'
-  ],
+  // '@/assets/scss/theme.scss',
+  // '@/assets/scss/mixins.scss',
+  css: ['@/assets/css/base.css', 'animate.css/animate.css', 'animate.css/animate.compat.css'],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/element/index.scss" as element;`
+          additionalData: '@import "@/assets/scss/index.scss";',
+          // additionalData: `@use "@/assets/scss/element/index.scss" as element;`
         }
       }
     }
   },
-  // plugins: [{ src: '@/plugins/disable-scale', ssr: false }],
-  // vite: {
-  //   // css: {
-  //   //   preprocessorOptions: {
-  //   //     scss: {
-  //   //       additionalData: '@use "~/assets/scss/index.scss" as *;'
-  //   //     }
-  //   //   }
-  //   // }
-  // },
   devtools: { enabled: true },
   // http
   nitro: {

@@ -1,8 +1,8 @@
 <!--
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-09 11:09:55
- * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-09-05 09:39:11
+ * @LastEditors: Gavin xl@ckcck.com
+ * @LastEditTime: 2023-09-07 15:57:49
  * @Description:
 -->
 <template>
@@ -36,7 +36,7 @@ onMounted(() => {
   setThemeType('light')
 })
 
-const  currentHeight = ref(0)
+const currentHeight = ref(0)
 onBeforeMount(() => {
   windowInfo.value = {
     width: window.innerWidth,
@@ -53,16 +53,16 @@ onBeforeMount(() => {
   window.addEventListener('scroll', () => {
     scrollTop.value =
       window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const scroll = scrollTop.value - currentHeight.value
-      currentHeight.value = scrollTop.value
-      if (scrollTop.value < 100) {
-        headerClass.value = 'fixed-top'
-      } else if (scroll < 0) {
-        headerClass.value = 'slideDown'
-      } else {
-        headerClass.value = 'slideUp'
-      }
-    })
+    const scroll = scrollTop.value - currentHeight.value
+    currentHeight.value = scrollTop.value
+    if (scrollTop.value < 100) {
+      headerClass.value = 'fixed-top'
+    } else if (scroll < 0) {
+      headerClass.value = 'slideDown'
+    } else {
+      headerClass.value = 'slideUp'
+    }
+  })
 
   // if (process.client) {
   // }
@@ -74,25 +74,6 @@ watch(themeType, (newVal) => {
 })
 </script>
 <style lang="scss">
-body {
-  &::-webkit-scrollbar-track-piece {
-    width: 5px;
-    background-color: #c4c4c4;
-  }
-  &::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 5px;
-    background-color: rgb(var(--color-primary));
-  }
-  &::-webkit-scrollbar-thumb {
-    width: 5px;
-    border-radius: 5px;
-    background-color: rgb(var(--color-primary));
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    width: 5px;
-    border-radius: 5px;
-    background-color: rgb(var(--color-primary));
-  }
-}
+// @import './assets/scss/theme.scss';
+
 </style>
