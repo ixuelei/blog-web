@@ -1,8 +1,8 @@
 /*
  * @Author: Gavin xl@ixuelei.com
  * @Date: 2023-03-10 15:58:40
- * @LastEditors: Gavin xl@ixuelei.com
- * @LastEditTime: 2023-09-04 09:33:24
+ * @LastEditors: Gavin xl@ckcck.com
+ * @LastEditTime: 2023-09-09 17:29:03
  * @Description:
  */
 // http://www.syrr.cn/news/6199.html
@@ -21,12 +21,13 @@ export const BnApp = defineStore('BnApp', {
       scrollTop: 0,
       /**
        * 移动端菜单展示状态
-      */
-     isShowMenu: false,
-     /**
+       */
+      isShowMenu: false,
+      /**
        * 移动端导航样式
-      */
-     headerClass: 'fixed-top',
+       */
+      headerClass: 'fixed-top',
+      highLightIndex: 0,
       name: null,
       counter: 17,
       age: 100,
